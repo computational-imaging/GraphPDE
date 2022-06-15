@@ -28,10 +28,10 @@ You may also run the notebooks **notebook/inverse_wave_equation_density.ipynb** 
 ## Training
 We also provide sample training script for both GNN and prior network. Training dataset for both can be downloaded from "" and should be placed in the **data** folder. 
 ```
+# train GNN forward model
 python GNN/train_2d_wave_equation.py --file ./data/training  --diffML --normalize --log --lr_schedule
-
+# train generative prior
 python Prior/autodecoder.py  --num_pe_fns 3 --use_pe --dataset_size 10000 --batch_size 32 --gpu 1  --regularize --irregular_mesh --jitter --prior init_state
-
 python Prior/autodecoder.py  --num_pe_fns 3 --use_pe --dataset_size 10000 --batch_size 32 --gpu 1  --regularize --irregular_mesh --jitter --prior density
 ```
 
