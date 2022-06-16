@@ -30,7 +30,7 @@ p.add_argument('--repeat_time',type=int,default=120)
 
 
 #solver setup
-p.add_argument('--solver_path', type=str, default='./data/model_zoo/gnn_solver_3136000.pth')
+p.add_argument('--solver_path', type=str, default='./data/model_zoo/gnn_solver.pth')
 p.add_argument('--edge_features', nargs='+', type=str, default=['dist','direction'])
 
 #inverse problem

@@ -21,6 +21,7 @@ p.add('-c', '--config', required=False, is_config_file=True, help='Path to confi
 
 p.add_argument('--log',action='store_true',  default=False,
                help='whether log the training data')
+p.add_argument('--file', type=str, default='./data/training/', help='root for logging')
 p.add_argument('--logging_root', type=str, default='./logs', help='root for logging')
 p.add_argument('--experiment_name', type=str, default="solver_irregular",
                help='Name of subdirectory in logging_root where summaries and checkpoints will be saved.')

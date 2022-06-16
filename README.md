@@ -6,13 +6,28 @@ Official PyTorch implementation.<br>[Learning to Solve PDE-constrained Inverse P
 [Gordon Wetzstein](https://computationalimaging.org)<br>
 Stanford University <br>
 <img src='pipline.jpg'/>
-## Quickstart
+## Set up environment
 To setup a conda environment use these commands
 ```
 conda env create -f environment.yml
 conda activate gnn
 ```
-Dataset and pretrained model and validation samples can be download from "". Unzip and place model and data in the **data** folder.
+We also need to install pytorch and pytorch-geometric with following commands:
+```
+pip install torch==1.10.0+cu113 torchvision==0.11.1+cu113 torchaudio==0.10.0+cu113 -f https://download.pytorch.org/whl/cu113/torch_stable.html
+
+wget https://data.pyg.org/whl/torch-1.10.0%2Bcu113/torch_cluster-1.5.9-cp37-cp37m-linux_x86_64.whl
+pip install torch_cluster-1.5.9-cp37-cp37m-linux_x86_64.whl
+wget https://data.pyg.org/whl/torch-1.10.0%2Bcu113/torch_scatter-2.0.9-cp37-cp37m-linux_x86_64.whl
+pip install torch_scatter-2.0.9-cp37-cp37m-linux_x86_64.whl
+wget https://data.pyg.org/whl/torch-1.10.0%2Bcu113/torch_sparse-0.6.12-cp37-cp37m-linux_x86_64.whl
+pip install torch_sparse-0.6.12-cp37-cp37m-linux_x86_64.whl
+wget https://data.pyg.org/whl/torch-1.10.0%2Bcu113/torch_spline_conv-1.2.1-cp37-cp37m-linux_x86_64.whl
+pip install torch_spline_conv-1.2.1-cp37-cp37m-linux_x86_64.whl
+pip install torch-geometric
+```
+## Solve Inverse Problem
+Dataset and pretrained model and validation samples can be download [here](https://drive.google.com/file/d/1FnOYE2TThb6QCgDIkaBw0CGQN7D0scbu/view?usp=sharing). Unzip and place model and data in the **data** folder.
 
 Now you can solve invere problem with 2D wave equation with the following commands.
 ```
@@ -26,7 +41,7 @@ python InverseProblem/experiment_scripts/run_gnn.py  --config InverseProblem/con
 You may also run the notebooks **notebook/inverse_wave_equation_density.ipynb** and **notebook/inverse_wave_equation_init.ipynb** for a quick demo and visualization.
 
 ## Training
-We also provide sample training script for both GNN and prior network. Training dataset for both can be downloaded from "" and should be placed in the **data** folder. 
+We also provide sample training script for both GNN and prior network. Training dataset for both can be downloaded from [here](https://drive.google.com/file/d/1FnOYE2TThb6QCgDIkaBw0CGQN7D0scbu/view?usp=sharing) and should be placed in the **data** folder. 
 ```
 # train GNN forward model
 python GNN/train_2d_wave_equation.py --file ./data/training  --diffML --normalize --log --lr_schedule
