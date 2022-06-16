@@ -43,7 +43,7 @@ You may also run the notebooks for a quick demo and visualization.
 | --- | ----------- |
 | [notebook/inverse_wave_equation_density.ipynb](https://github.com/computational-imaging/GraphPDE/blob/main/notebook/inverse_wave_equation_density.ipynb) | Full Waveform Inversion |
 | [notebook/inverse_wave_equation_init.ipynb](https://github.com/computational-imaging/GraphPDE/blob/main/notebook/inverse_wave_equation_init.ipynb) | Initial State Recovery |
-<br>
+
 ## Training
 We also provide sample training script for both GNN and prior network. Training dataset for both can be downloaded from [here](https://drive.google.com/file/d/1FnOYE2TThb6QCgDIkaBw0CGQN7D0scbu/view?usp=sharing) and unzip the data.zip folder in the root directory.
 ```
