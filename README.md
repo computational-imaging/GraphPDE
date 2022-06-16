@@ -27,7 +27,7 @@ pip install torch_spline_conv-1.2.1-cp37-cp37m-linux_x86_64.whl
 pip install torch-geometric
 ```
 ## Solve Inverse Problem
-Dataset and pretrained model and validation samples can be download [here](https://drive.google.com/file/d/1FnOYE2TThb6QCgDIkaBw0CGQN7D0scbu/view?usp=sharing). Unzip and place model and data in the **data** folder.
+Dataset and pretrained model and validation samples can be download [here](https://drive.google.com/file/d/1FnOYE2TThb6QCgDIkaBw0CGQN7D0scbu/view?usp=sharing). Unzip the data.zip folder in the root directory.
 
 Now you can solve invere problem with 2D wave equation with the following commands.
 ```
@@ -38,13 +38,19 @@ python InverseProblem/experiment_scripts/run_gnn.py  --config InverseProblem/con
 python InverseProblem/experiment_scripts/run_gnn.py  --config InverseProblem/config/density_gnn_np.ini 
 python InverseProblem/experiment_scripts/run_gnn.py  --config InverseProblem/config/init_state_gnn_np.ini 
 ```
-You may also run the notebooks **notebook/inverse_wave_equation_density.ipynb** and **notebook/inverse_wave_equation_init.ipynb** for a quick demo and visualization.
-
+You may also run the notebooks for a quick demo and visualization.
+| File | Description |
+| --- | ----------- |
+| [notebook/inverse_wave_equation_density.ipynb](https://github.com/computational-imaging/GraphPDE/blob/main/notebook/inverse_wave_equation_density.ipynb) | Full Waveform Inversion |
+| [notebook/inverse_wave_equation_init.ipynb](https://github.com/computational-imaging/GraphPDE/blob/main/notebook/inverse_wave_equation_init.ipynb) | Initial State Recovery |
+<br>
 ## Training
-We also provide sample training script for both GNN and prior network. Training dataset for both can be downloaded from [here](https://drive.google.com/file/d/1FnOYE2TThb6QCgDIkaBw0CGQN7D0scbu/view?usp=sharing) and should be placed in the **data** folder. 
+We also provide sample training script for both GNN and prior network. Training dataset for both can be downloaded from [here](https://drive.google.com/file/d/1FnOYE2TThb6QCgDIkaBw0CGQN7D0scbu/view?usp=sharing) and unzip the data.zip folder in the root directory.
 ```
 # train GNN forward model
 python GNN/train_2d_wave_equation.py --file ./data/training  --diffML --normalize --log --lr_schedule
+```
+```
 # train generative prior
 python Prior/autodecoder.py  --num_pe_fns 3 --use_pe --dataset_size 10000 --batch_size 32 --gpu 1  --regularize --irregular_mesh --jitter --prior init_state
 python Prior/autodecoder.py  --num_pe_fns 3 --use_pe --dataset_size 10000 --batch_size 32 --gpu 1  --regularize --irregular_mesh --jitter --prior density
